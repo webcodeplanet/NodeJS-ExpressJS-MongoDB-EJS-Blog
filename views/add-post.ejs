@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCodePlanet Blog</title>
+    <%- include('./partials/styles') %>
+
+</head>
+<body>
+
+<div class="container-for-all">
+
+    <!-- Header Container -->
+    
+    <%- include('./partials/header.ejs') %>
+    
+    <!-- Main Footer Container -->
+    <div class="main-footer-container">
+
+        <main>
+            
+            <div class="main-top">
+                <h1>Add Post</h1>
+            </div>
+    
+            <div class="add-post-container">
+
+                <form class="add-post-form" method="post" action="/add-post" enctype="multipart/form-data">
+
+                    <input name="posttitle" type="text" maxlength="255" placeholder="Post Title">
+
+                    <textarea name="postbody" id="post-body" placeholder="Post Body"></textarea>
+
+                    <input type="file" name="postimage" accept="image/*">
+                    
+                    <button type="submit">Submit</button>
+
+                </form>
+
+            </div>
+
+    
+        </main>
+
+    
+        <!-- Footer -->
+
+        <footer>
+            Designed by WebCodePlanet
+        </footer>
+
+    </div>
+    
+</div>
+
+    
+    
+</body>
+</html>

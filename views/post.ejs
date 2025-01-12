@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCodePlanet Blog</title>
+    <%- include('./partials/styles') %>
+
+</head>
+<body>
+
+<div class="container-for-all">
+
+    <!-- Header Container -->
+    
+    <%- include('./partials/header.ejs') %>
+    
+    
+    <!-- Main Footer Container -->
+    <div class="main-footer-container">
+
+        <main>
+            
+            <div class="main-top">
+               
+                <h1><%= post.posttitle %></h1>
+
+                
+                <div class="post-controls">
+
+                    <a href="/edit/<%= post.id %>">
+                        <img src="/img/edit-post.svg" alt="">
+                    </a>
+
+                    <img data-id="<%= post.id %>" src="/img/delete-post.svg" alt="">
+                    
+                
+                </div>
+
+
+                <p class="muted"> 
+                    <span class="datetime">
+                        <%= post.createdAt.toLocaleDateString() %>
+                    </span>  
+                </p>
+                
+            </div>
+    
+            <div class="post-full">
+
+                <img class="post-full-img" src="/uploads/<%= post.postimage %>" alt="">
+
+                <!-- Post Full -->
+                <div class="post-full-text"> 
+                    
+                    <p><%= post.postbody %></p>
+                
+                </div>
+                <!-- Post Full -->
+
+            </div>
+
+    
+        </main>
+
+    
+        <!-- Footer -->
+
+        <footer>
+            Designed by WebCodePlanet
+        </footer>
+
+    </div>
+    
+</div>
+
+<script src="/js/post-delete.js"></script>
+    
+</body>
+</html>

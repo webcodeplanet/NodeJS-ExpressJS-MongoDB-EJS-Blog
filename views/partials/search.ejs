@@ -1,0 +1,8 @@
+<div class="search-container">
+    <form method="GET" action="/search">
+        <input type="text" name="query" placeholder="Search" value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>">
+        <button type="submit">
+            <img src="/img/search.svg" alt="Search">
+        </button>
+    </form>
+</div>

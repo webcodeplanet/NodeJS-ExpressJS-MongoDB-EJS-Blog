@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCodePlanet Blog</title>
+    <%- include('./partials/styles') %>
+
+</head>
+<body>
+
+<div class="container-for-all">
+
+    <!-- Header Container -->
+    
+    <%- include('./partials/header.ejs') %>
+    
+    <!-- Main Footer Container -->
+    <div class="main-footer-container">
+
+        <main>
+            
+            <div class="main-top">
+                <h1>Edit Post</h1>
+            </div>
+    
+            <div class="add-post-container">
+
+                <form class="add-post-form" method="post" action="/edit/<%= post.id %>?_method=PUT" enctype="multipart/form-data">
+
+                    <input name="posttitle" type="text" maxlength="255" placeholder="Post Title" value="<%= post.posttitle %>">
+
+                    <textarea name="postbody" placeholder="Post Body"><%= post.postbody %></textarea>
+
+                    <input class="upload-file" type="file" name="postimage" accept="image/*">
+
+                    <div class="edit-post">
+                        <img src="/uploads/<%= post.postimage %>" alt="">
+                    </div>
+
+                    <button type="submit">Submit</button>
+
+                </form>
+
+            </div>
+
+    
+        </main>
+
+    
+        <!-- Footer -->
+
+        <footer>
+            Designed by WebCodePlanet
+        </footer>
+
+    </div>
+    
+</div>
+
+<script>
+    document.querySelector('.upload-file').addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.querySelector('.edit-post img').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+</script>
+  
+    
+</body>
+</html>
